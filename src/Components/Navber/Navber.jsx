@@ -19,9 +19,10 @@ const Navber = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                       
-                       {links}
+                        className="menu menu-sm z-20 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><NavLink to={'/'}>Home </NavLink></li>
+                        <li><NavLink to={'challenges'}>Challenges </NavLink></li>
+                        <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
                        
                     </ul>
                 </div>
@@ -36,6 +37,7 @@ const Navber = () => {
                 <a className="btn">Button</a>
             </div>
         </div>
+   
     );
 };
 

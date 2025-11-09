@@ -29,7 +29,7 @@ const Banner = () => {
                             Join a Challenge — Make an Impact
                         </h1>
                         
-                        <Link  to={'challenges'} className='btn w-48'>Explore Challenges</Link> 
+                        <Link  to={'challenges'} className='btn w-48 rounded'>Explore Challenges</Link> 
 
                     </div>
                 </SwiperSlide>

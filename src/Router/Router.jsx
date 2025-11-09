@@ -3,6 +3,7 @@ import MainLayOut from "../LayOut/MainLayOut";
 import Home from "../Components/Home/Home";
 import Challenge from "../Components/Challenge/Challenge";
 import Myactivity from "../Components/Myactivity/Myactivity";
+import axios from "axios";
 
 
 const router = createBrowserRouter([
@@ -11,8 +12,10 @@ const router = createBrowserRouter([
         element: <MainLayOut></MainLayOut>,
         children: [
             {
-                index: true,
-                element: <Home></Home>
+                 path: '/',
+                element: <Home></Home>,
+                loader: () => axios('http://localhost:3000/challenges/limit')
+                
             },
             {
                 path: '/challenges',
