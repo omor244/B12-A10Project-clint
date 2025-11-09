@@ -4,7 +4,12 @@ import Home from "../Components/Home/Home";
 import Challenge from "../Components/Challenge/Challenge";
 import Myactivity from "../Components/Myactivity/Myactivity";
 import axios from "axios";
+import Trips from "../Components/Trips/Trips";
+import UseAPIhook from "../Hooks/UseAPIhook";
+import Register from "../Components/Register/Register";
+import Login from "../Components/Login/Login";
 
+const axiosapi = UseAPIhook()
 
 const router = createBrowserRouter([
     {
@@ -23,10 +28,24 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myactivity',
-                element: <Myactivity></Myactivity>
+                element: <Myactivity></Myactivity>,
+            },
+            {
+                path: '/trips',
+                element: <Trips></Trips>,
+                loader: () => axiosapi('/trips')
+
             }
         ]
     },
+    {
+        path: '/register',
+        element: <Register></Register>
+    },
+    {
+        path: '/login',
+        element: <Login></Login>
+    }
 ]);
 
 export default router

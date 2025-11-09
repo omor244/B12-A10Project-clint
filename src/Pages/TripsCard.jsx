@@ -1,3 +1,4 @@
+import Marquee from "react-fast-marquee";
 
 
 const TripsCard = ({ trip }) => {
@@ -5,13 +6,25 @@ const TripsCard = ({ trip }) => {
     const {title, authorName, upvotes, createdAt} = trip
     console.log(trip)
     return (
-        <div className="card bg-[#1f2937] w-72 ">
-            <div className="card-body">
-                <h2 className="card-title">{ title}</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+        <div className="card bg-[#1f2950] hover:scale-y-110 0 ">
+         
+            <div className="card-body ">
+                <h2 className="card-title text-xl font-bold">{ title}</h2>
+               
+          
+                    <div>
+                        <p>Name: {authorName}</p>
+                        <p>Upvotes:  {upvotes}</p>
+
+                    </div>
+              
                 <div className="card-actions justify-end">
-                    <button className="btn">Buy Now</button>
+                    <button className="badge text-sm"> <p> {createdAt}</p></button>
                 </div>
+                  
+                
+                  
+               
             </div>
         </div>
     );
