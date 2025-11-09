@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 
 const ChallengeCard = ({ challenge }) => {
-    console.log(challenge)
+    
     
     const { imageUrl, title,  category, _id, impactMetric } = challenge
     return (
