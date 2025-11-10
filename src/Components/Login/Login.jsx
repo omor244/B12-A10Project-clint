@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import AuthContex from '../Context/AuthContex';
 
 const Login = () => {
-    const { signinuser } = use(AuthContex)
+    const { signinuser, googlesignin } = use(AuthContex)
     const [error, seterror] = useState('')
     const emailref = useRef(null)
     const navigate = useNavigate()
@@ -35,6 +35,18 @@ const Login = () => {
             console.log(err)
         })
 
+    }
+
+    const handelgooglesign = () => {
+         
+        googlesignin()
+            .then(res => {
+                console.log(res.user)
+                navigate('/')
+            }) 
+            .catch(err => {
+            console.log(err)
+        })
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#1f2937] relative overflow-hidden">
@@ -108,7 +120,7 @@ const Login = () => {
 
                         {/* Google Signin */}
                         <button
-
+                          onClick={handelgooglesign}
                             type="button"
 
                             className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"

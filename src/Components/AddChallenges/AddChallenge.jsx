@@ -4,7 +4,18 @@ const AddChallenge = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+           
 
+        const newdata = {
+            title: e.target.title.value,
+            category: e.target.category.value,
+            description: e.target.description.value,
+            imageUrl: e.target.photo.value,
+            startDate: new Date(),
+           
+            created_by: 'omoronfire90909@gmail.com',
+            participants: 0,
+        }
         
     }
     return (
@@ -14,42 +25,44 @@ const AddChallenge = () => {
                     <h2 className="text-2xl font-bold text-center mb-6">Add New Model</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Name Field */}
-                        <div>
-                            <label className="label font-medium">Name</label>
+                        <div className="space-y-2">
+                            <label className="label font-medium">Title</label>
                             <input
                                 type="text"
-                                name="name"
+                                name="title"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
-                                placeholder="Enter name"
+                                placeholder="Title"
                             />
                         </div>
 
                         {/* Category Dropdown */}
-                        <div>
+                        <div className="space-y-2">
                             <label className="label font-medium">Category</label>
                             <select
                                 defaultValue={""}
                                 name="category"
                                 required
                                 className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
-                            >
+                            > 
+                                 
+
                                 <option value="" disabled>
                                     Select category
                                 </option>
-                                <option value="Vehicles">Vehicles</option>
-                                <option value="Plants">Plants</option>
-                                <option value="Foods">Foods</option>
-                                <option value="Home & Living">Home & Living</option>
-                                <option value="Characters">Characters</option>
-                                <option value="Space">Space</option>
-                                <option value="Animals">Animals</option>
-                                <option value="Other">Other</option>
+                                <option value="Vehicles">Waste Reduction</option>
+                                <option value="Plants">Energy Conservation</option>
+                               
+                                <option value="Home & Living">Water Conservation</option>
+
+                                <option value="Characters">Sustainable Transport</option>
+                                <option value="Space">Green Living</option>
+                               
                             </select>
                         </div>
 
                         {/* Description Textarea */}
-                        <div>
+                        <div className="space-y-2">
                             <label className="label font-medium">Description</label>
                             <textarea
                                 name="description"
@@ -61,11 +74,11 @@ const AddChallenge = () => {
                         </div>
 
                         {/* Thumbnail URL */}
-                        <div>
+                        <div className="space-y-2">
                             <label className="label font-medium">Thumbnail URL</label>
                             <input
                                 type="url"
-                                name="thumbnail"
+                                name="Photo"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="https://example.com/image.jpg"

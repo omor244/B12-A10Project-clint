@@ -1,34 +1,53 @@
 
-import { use } from 'react';
-import {  useLoaderData } from 'react-router';
+import { use, useEffect, useState } from 'react';
+import {  useLoaderData, useParams } from 'react-router';
 import AuthContex from '../Components/Context/AuthContex';
+import UseAPIhook from '../Hooks/UseAPIhook';
+import { toast } from 'react-toastify';
 
 
 const Detals = () => {
-    const data = useLoaderData()
+    
+    const {id} = useParams()
     const { user } = use(AuthContex)
-    const axisoapi = use(AuthContex)
+    const axisoapi = UseAPIhook()
+    const axiosapi = UseAPIhook()
+    const [data, setdata] = useState([])
+    const [reffter, setreffer] = useState(false)
     const { imageUrl, title, category, _id, impactMetric, participants, description } = data || {}
+  
 
+    useEffect(() => {
+        axiosapi.get(`/challenges/${id}`)
+            .then(data => {
+            
+                setdata(data.data)
+        })
+    },[axiosapi, data, reffter])
 
     const handeljoin = () => {
        
         
         const newdata = {
             userEmail: user.email, 
-            challengeId: data,_id,
+            challengeId: data._id,
             status: "NotStarted", 
             progress: 0,
             joinDate: new Date(),
         }
 
-        axisoapi.post('/challenges', newdata)
+        axisoapi.post(`/challenges/${data._id}/join`, newdata)
             .then(res => {
                 console.log(res.data)
-                alert('successfully joined')
+                toast.success('successfully joined')
+                setreffer(!reffter)
+            })
+            .catch(err => {
+                console.log(err.message)
+              
         })
 
-        console.log(newdata)
+        
     }
     return (
         <div className=" py-10">

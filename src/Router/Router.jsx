@@ -42,8 +42,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <Detals></Detals>,
-                loader: ({ params }) => fetch(`http://localhost:3000/challenges/${params.id}`)
+                element: <Detals></Detals>
+               
             },
             {
                 path: '/addchallenge',
