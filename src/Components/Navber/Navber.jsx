@@ -1,13 +1,30 @@
 
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import logo from '../../assets/logo.png.png'
+import { use } from 'react';
+import AuthContex from '../Context/AuthContex';
 const Navber = () => {
+      
+    const { user, signoutuser } = use(AuthContex)
+    
+    const handelsignout = () => {
+         
+        signoutuser()
+            .then(res => {
+            console.log(res)
+            })
+            .catch(err => {
+            console.log(err)
+        })
+     }
 
     const links = <>
         <li><NavLink to={'/'}>Home </NavLink></li>
         <li><NavLink to={'challenges'}>Challenges </NavLink></li>
         <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
         <li><NavLink to={'/trips'}> Trips</NavLink></li>
+        <li><NavLink to={'/addchallenge'}> add-challenge</NavLink></li>
+
     
     
     </>
@@ -35,7 +52,9 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {
+                    user ? <a onClick={handelsignout} className="btn">Sign Out</a> : <Link to={'/login'} className="btn">Login</Link>
+               }
             </div>
         </div>
    

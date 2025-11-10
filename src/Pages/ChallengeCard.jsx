@@ -23,7 +23,7 @@ const ChallengeCard = ({ challenge }) => {
                     <div className="flex gap-4 text-sm text-base-content/60">
                 
                     </div>
-                    <Link to={`/model-details/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
+                    <Link to={`/details/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
                 </div>
             </div>
         </div>

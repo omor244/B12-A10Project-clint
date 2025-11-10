@@ -8,6 +8,9 @@ import Trips from "../Components/Trips/Trips";
 import UseAPIhook from "../Hooks/UseAPIhook";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
+import PrivateRoute from "./PrivateRoute";
+import Detals from "../Pages/Detals";
+import AddChallenge from "../Components/AddChallenges/AddChallenge";
 
 const axiosapi = UseAPIhook()
 
@@ -24,7 +27,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/challenges',
-                element: <Challenge></Challenge>
+                element: <Challenge></Challenge>,
+                loader: () => axiosapi('/challenges')
             },
             {
                 path: '/myactivity',
@@ -35,6 +39,17 @@ const router = createBrowserRouter([
                 element: <Trips></Trips>,
                 loader: () => axiosapi('/trips')
 
+            },
+            {
+                path: '/details/:id',
+                element: <Detals></Detals>,
+                loader: ({ params }) => fetch(`http://localhost:3000/challenges/${params.id}`)
+            },
+            {
+                path: '/addchallenge',
+                element: <PrivateRoute>
+                    <AddChallenge></AddChallenge>
+                </PrivateRoute>
             }
         ]
     },
