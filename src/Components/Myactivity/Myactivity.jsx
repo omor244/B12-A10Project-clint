@@ -2,6 +2,7 @@ import {  useContext, useEffect, useState } from "react";
 import UseAPIhook from "../../Hooks/UseAPIhook";
 import AuthContex from "../Context/AuthContex";
 import MyActiveCard from "../../Pages/MyActiveCard";
+import Loadding from "../../Loadder/Loadding";
 
 
 ;
@@ -26,7 +27,7 @@ const Myactivity = () => {
     }, [axisoapi, email])
     
     if (loadding) {
-        return <p>loadding...</p>
+        return <Loadding></Loadding>
     }
     
     return (

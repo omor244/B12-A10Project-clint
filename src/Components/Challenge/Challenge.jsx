@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UseAPIhook from "../../Hooks/UseAPIhook";
 import ChallengeCard from "../../Pages/ChallengeCard";
 import { useLoaderData } from "react-router";
+import Loadding from "../../Loadder/Loadding";
 
 
 
@@ -11,6 +12,7 @@ const Challenge = () => {
   const [select, setselect] = useState('')
     const Challenge = data.data
     const [challenges, setchallenges] = useState(Challenge)
+    const [loadding, setloadding] = useState(true)
 
     useEffect(() => {
         
@@ -18,11 +20,14 @@ const Challenge = () => {
             .then(res => {
                 
                 setchallenges(res.data)
+                setloadding(false)
         })
     },[select, useAxios])
 
       
- 
+    if (loadding) {
+      return <Loadding></Loadding>
+  }
     
     return (
         <div>

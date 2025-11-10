@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(() => {
         axiostrips.get('/trips/limit')
             .then(data => {
-                console.log(data.data)
+             
                 settrips(data.data)
             })
     }, [axiostrips])
@@ -26,7 +26,7 @@ const Home = () => {
          
         axiostrips.get('/events',) 
             .then(data => {
-                console.log(data.data)
+             
                 
                 setevents(data.data)
         })

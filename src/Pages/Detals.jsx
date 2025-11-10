@@ -4,16 +4,17 @@ import {  Link, useLoaderData, useParams } from 'react-router';
 import AuthContex from '../Components/Context/AuthContex';
 import UseAPIhook from '../Hooks/UseAPIhook';
 import { toast } from 'react-toastify';
+import Loadding from '../Loadder/Loadding';
 
 
 const Detals = () => {
     
     const {id} = useParams()
-    const { user } = use(AuthContex)
+    
     const axisoapi = UseAPIhook()
     const axiosapi = UseAPIhook()
     const [data, setdata] = useState([])
-    const [reffter, setreffer] = useState(false)
+    const [loadding, setloadding] = useState(true)
     const { imageUrl, title, category, _id, impactMetric, participants, description } = data || {}
   
 
@@ -22,31 +23,14 @@ const Detals = () => {
             .then(data => {
             
                 setdata(data.data)
+                setloadding(false)
         })
-    },[axiosapi, data, reffter])
+    },[axiosapi, data])
 
-    const handeljoin = () => {
-       
-        
-        const newdata = {
-            userEmail: user.email, 
-            challengeId: data._id,
-            status: "NotStarted", 
-            progress: 0,
-            joinDate: new Date(),
-        }
-
-        axisoapi.post(`/challenges/${data._id}/join`, newdata)
-            .then(res => {
-                console.log(res.data)
-                toast.success('successfully joined')
-                setreffer(!reffter)
-            })
-            .catch(err => {
-                console.log(err.message)
-              
-        })
+    if (loadding) {
+        return <Loadding></Loadding>
     }
+  
     return (
         <div className=" py-10">
             <div className=" bg-[#1f2937] lg:flex items-center gap-8 p-5  ">

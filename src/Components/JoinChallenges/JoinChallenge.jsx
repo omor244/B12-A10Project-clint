@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 
 import AuthContex from "../Context/AuthContex";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import UseAPIhook from "../../Hooks/UseAPIhook";
 import { toast } from "react-toastify";
 
@@ -16,7 +16,7 @@ const JoinChallenge = () => {
     useEffect(() => {
         axiosapi.get(`/join/${id}`)
             .then(res => {
-                console.log(res.data)
+                
                 setChallenge(res.data)
             })
             
@@ -35,8 +35,11 @@ const JoinChallenge = () => {
    
         axiosapi.post(`/challenges/${challenge._id}/join`, newdata)
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.result.insertedId)
                 toast.success('successfully joined')
+                if (res.data.result.insertedId) {
+                    setJoined(true)
+                }
                   
             })
             .catch(err => {
@@ -44,7 +47,7 @@ const JoinChallenge = () => {
                  
             })
     }
-    // if (!challenge) return <p>Loading...</p>;
+    if (!challenge) return <p>Loading...</p>;
 
     const {imageUrl,title, description,category} = challenge || {}
 
@@ -68,9 +71,9 @@ const JoinChallenge = () => {
             {joined ? (
                 <div className="bg-green-100 text-green-700 p-4 rounded-xl">
                     🎉 You’ve joined this challenge! Start tracking in{" "}
-                    <a href="/my-activities" className="underline font-semibold">
+                    <Link to={'/myactivity'} className="underline font-semibold">
                         My Activities
-                    </a>
+                    </Link>
                 </div>
             ) : (
                 <button

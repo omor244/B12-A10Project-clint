@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const TripsCard = ({ trip }) => {
 
     const {title, authorName, upvotes, createdAt} = trip
-    console.log(trip)
+    
     return (
         <div className="card bg-[#1f2950] hover:scale-y-110 0 ">
          

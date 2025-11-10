@@ -4,9 +4,6 @@ import TripsCard from "../../Pages/TripsCard";
 
 const Trips = () => {
     const data = useLoaderData()
-    
-
-    console.log(data.data)
     return (
         <div>
             

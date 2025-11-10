@@ -21,6 +21,7 @@ const MyActiveCard = ({ challenge }) => {
                 <div className="card-actions justify-between items-center mt-4">
                     <div className="flex gap-4 text-sm text-base-content/60">
 
+                    <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
                     </div>
                     <Link to={`/myactivedetails/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
                 </div>

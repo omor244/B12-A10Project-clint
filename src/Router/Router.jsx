@@ -13,6 +13,8 @@ import Detals from "../Pages/Detals";
 import AddChallenge from "../Components/AddChallenges/AddChallenge";
 import MyActiveDetails from "../Pages/MyActiveDetails";
 import JoinChallenge from "../Components/JoinChallenges/JoinChallenge";
+import ErrorPage from "../Error/ErrorPage";
+import Loadding from "../Loadder/Loadding";
 
 const axiosapi = UseAPIhook()
 
@@ -20,6 +22,8 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayOut></MainLayOut>,
+        errorElement: <ErrorPage></ErrorPage>,
+        hydrateFallbackElement: <Loadding></Loadding>,
         children: [
             {
                  path: '/',
