@@ -46,8 +46,6 @@ const Detals = () => {
                 console.log(err.message)
               
         })
-
-        
     }
     return (
         <div className=" py-10">
@@ -68,7 +66,7 @@ const Detals = () => {
                             Metric: {impactMetric}</p>
 
 
-                        <p>Sort-Description: {description}</p>
+                        <p className='max-w-[800px]'>Sort-Description: {description}</p>
 
                         <a onClick={handeljoin} className='btn px-8 rounded-md'>Join this challenge</a>
                     </div>

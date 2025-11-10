@@ -44,7 +44,7 @@ const Navber = () => {
                        
                     </ul>
                 </div>
-                <a className=" text-xl"><img className='max-w-28' src={logo} alt="" /></a>
+                <Link to={'/'} className=" text-xl"><img className='max-w-28' src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

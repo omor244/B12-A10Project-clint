@@ -11,6 +11,7 @@ import Login from "../Components/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Detals from "../Pages/Detals";
 import AddChallenge from "../Components/AddChallenges/AddChallenge";
+import MyActiveDetails from "../Pages/MyActiveDetails";
 
 const axiosapi = UseAPIhook()
 
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myactivity',
-                element: <Myactivity></Myactivity>,
+                element: <PrivateRoute>
+                    <Myactivity></Myactivity>
+                </PrivateRoute>,
             },
             {
                 path: '/trips',
@@ -49,6 +52,12 @@ const router = createBrowserRouter([
                 path: '/addchallenge',
                 element: <PrivateRoute>
                     <AddChallenge></AddChallenge>
+                </PrivateRoute>
+            },
+            {
+                path: '/myactivedetails/:id',
+                element: <PrivateRoute>
+                    <MyActiveDetails></MyActiveDetails>
                 </PrivateRoute>
             }
         ]

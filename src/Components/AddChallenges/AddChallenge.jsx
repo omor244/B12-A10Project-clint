@@ -1,10 +1,12 @@
 import { use } from "react";
 import AuthContex from "../Context/AuthContex";
+import UseAPIhook from "../../Hooks/UseAPIhook";
+import { toast } from "react-toastify";
 
 
 const AddChallenge = () => {
     const {user} = use(AuthContex)
-
+    const axisoapi = UseAPIhook()
     const handleSubmit = e => {
         e.preventDefault()
         const title = e.target.name.value
@@ -20,10 +22,17 @@ const AddChallenge = () => {
             description: discription,
             imageUrl: photo,
             startDate: new Date(),
-            created_by: user.name,
+            createdBy: user.email,
             participants: 0,
+            impactMetric:'kg CO₂ saved',
         }
         
+  
+        axisoapi.post('/challenges', newdata)
+            .then(data => {
+                console.log(data.data)
+                toast.success('successfully added')
+        })
         
     }
     return (
@@ -48,12 +57,12 @@ const AddChallenge = () => {
                         <div className="space-y-2">
                             <label className="label font-medium">Category</label>
                           
-                            <select defaultValue="Pick a font"
+                            <select defaultValue="select a category"
                              name="category"
                             className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
                             >
 
-                                <option disabled={true}>select a cagetory</option>
+                                <option disabled={true}>select a category</option>
                                 <option>Waste Reduction</option>
                                 <option> Energy Conservation</option>
                                 <option> Water Conservation</option>
