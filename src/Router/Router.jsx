@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import Detals from "../Pages/Detals";
 import AddChallenge from "../Components/AddChallenges/AddChallenge";
 import MyActiveDetails from "../Pages/MyActiveDetails";
+import JoinChallenge from "../Components/JoinChallenges/JoinChallenge";
 
 const axiosapi = UseAPIhook()
 
@@ -59,6 +60,13 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyActiveDetails></MyActiveDetails>
                 </PrivateRoute>
+            },
+            {
+                path: '/join/:id',
+                element: <PrivateRoute>
+                    <JoinChallenge></JoinChallenge>
+                </PrivateRoute>,
+            
             }
         ]
     },

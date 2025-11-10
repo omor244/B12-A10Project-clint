@@ -24,6 +24,7 @@ const Navber = () => {
         <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
         <li><NavLink to={'/trips'}> Trips</NavLink></li>
         <li><NavLink to={'/addchallenge'}> add-challenge</NavLink></li>
+       
 
     
     

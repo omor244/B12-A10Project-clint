@@ -1,6 +1,6 @@
 
 import { use, useEffect, useState } from 'react';
-import {  useLoaderData, useParams } from 'react-router';
+import {  Link, useLoaderData, useParams } from 'react-router';
 import AuthContex from '../Components/Context/AuthContex';
 import UseAPIhook from '../Hooks/UseAPIhook';
 import { toast } from 'react-toastify';
@@ -68,7 +68,7 @@ const Detals = () => {
 
                         <p className='max-w-[800px]'>Sort-Description: {description}</p>
 
-                        <a onClick={handeljoin} className='btn px-8 rounded-md'>Join this challenge</a>
+                        <Link  className='btn px-8 rounded-md'>Join this challenge</Link>
                     </div>
 
 
