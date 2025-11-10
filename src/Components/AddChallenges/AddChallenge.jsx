@@ -1,26 +1,34 @@
+import { use } from "react";
+import AuthContex from "../Context/AuthContex";
 
 
 const AddChallenge = () => {
+    const {user} = use(AuthContex)
 
     const handleSubmit = e => {
         e.preventDefault()
-           
-
+        const title = e.target.name.value
+        const cagetory = e.target.category.value
+        const discription = e.target.description.value
+        const photo = e.target.photo.value
+            
+            console.log(title, cagetory, discription, photo)
+        
         const newdata = {
-            title: e.target.title.value,
-            category: e.target.category.value,
-            description: e.target.description.value,
-            imageUrl: e.target.photo.value,
+            title: title,
+            category: cagetory,
+            description: discription,
+            imageUrl: photo,
             startDate: new Date(),
-           
-            created_by: 'omoronfire90909@gmail.com',
+            created_by: user.name,
             participants: 0,
         }
+        
         
     }
     return (
         <div>
-            <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
+            <div className="card border border-gray-200 bg-base-100  my-20 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
                 <div className="card-body p-6 relative">
                     <h2 className="text-2xl font-bold text-center mb-6">Add New Model</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -29,7 +37,7 @@ const AddChallenge = () => {
                             <label className="label font-medium">Title</label>
                             <input
                                 type="text"
-                                name="title"
+                                name="name"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="Title"
@@ -39,26 +47,22 @@ const AddChallenge = () => {
                         {/* Category Dropdown */}
                         <div className="space-y-2">
                             <label className="label font-medium">Category</label>
-                            <select
-                                defaultValue={""}
-                                name="category"
-                                required
-                                className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
-                            > 
-                                 
+                          
+                            <select defaultValue="Pick a font"
+                             name="category"
+                            className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
+                            >
 
-                                <option value="" disabled>
-                                    Select category
-                                </option>
-                                <option value="Vehicles">Waste Reduction</option>
-                                <option value="Plants">Energy Conservation</option>
-                               
-                                <option value="Home & Living">Water Conservation</option>
-
-                                <option value="Characters">Sustainable Transport</option>
-                                <option value="Space">Green Living</option>
-                               
+                                <option disabled={true}>select a cagetory</option>
+                                <option>Waste Reduction</option>
+                                <option> Energy Conservation</option>
+                                <option> Water Conservation</option>
+                                <option> Sustainable Transport</option>
+                                <option> Green Living</option>
                             </select>
+                                
+                               
+                        
                         </div>
 
                         {/* Description Textarea */}
@@ -78,7 +82,7 @@ const AddChallenge = () => {
                             <label className="label font-medium">Thumbnail URL</label>
                             <input
                                 type="url"
-                                name="Photo"
+                                name="photo"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="https://example.com/image.jpg"
