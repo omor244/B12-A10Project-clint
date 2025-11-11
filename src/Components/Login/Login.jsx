@@ -42,25 +42,26 @@ const Login = () => {
         
         signinuser(email, password)
             .then(res => {
-                console.log(res.user)
+                toast.success('Successfully Login')
                 navigate(location.state ? location.state : '/')
-               
+                
             })
             .catch(err => {
-               
+                
                 if (err.code === "auth/invalid-credential") {
                     toast.error('invalid-credential. Please try ageing')
                     return
                 }
-        })
-
-    }
-
-    const handelgooglesign = () => {
-         
-        googlesignin()
-            .then(res => {
+            })
             
+        }
+        
+        const handelgooglesign = () => {
+            
+            googlesignin()
+            .then(res => {
+                
+                toast.success('Successfully Login')
                 navigate(location.state ? location.state : '/')
 
             }) 

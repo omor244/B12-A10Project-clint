@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                  path: '/',
                 element: <Home></Home>,
-                loader: () => axios('http://localhost:3000/challenges/limit')
+                loader: () => axios('https://assignment-10-server-one-iota.vercel.app/challenges/limit')
                 
             },
             {

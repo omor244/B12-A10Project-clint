@@ -1,9 +1,35 @@
 import { Link } from "react-router";
+import UseAPIhook from "../Hooks/UseAPIhook";
+import { toast } from "react-toastify";
 
 
-const MyActiveCard = ({ challenge }) => {
-
+const MyActiveCard = ({ challenge, setreffter, reffer }) => {
+    const axiosapi = UseAPIhook()
+    
+    
     const { imageUrl, title, category, _id, impactMetric } = challenge || {}
+
+
+
+    const handeldelete = () => {
+     
+        
+        axiosapi.delete(`/delete/${_id}`)
+            .then(res => {
+                console.log(res.data.deletedCount)
+                if (res.data.deletedCount) {
+                    toast.success('Successfully Deleted')
+                    setreffter(!reffer)
+                }
+            })
+            .catch(err => {
+            console.log(err)
+        })
+
+    }
+
+ 
+
     return (
         <div className="card bg-[#1f2937]  shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:-translate-y-2">
             <figure className="h-48 overflow-hidden">
@@ -19,9 +45,10 @@ const MyActiveCard = ({ challenge }) => {
                 <div className="text-xs text-white ml-2">{impactMetric}</div>
 
                 <div className="card-actions justify-between items-center mt-4">
-                    <div className="flex gap-4 text-sm text-base-content/60">
+                    <div className="flex gap-4 text-sm justify-between text-base-content/60">
 
                     <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
+                    <button onClick={handeldelete} className="btn rounded-full ml-32 btn-outline hover:bg-[#1f2937] text-white  btn-sm">Delete</button>
                     </div>
                     <Link to={`/myactivedetails/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
                 </div>
