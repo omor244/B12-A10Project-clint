@@ -1,15 +1,25 @@
 
 import { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import AuthContex from "../Context/AuthContex";
 import { toast } from "react-toastify";
+import Loadding from "../../Loadder/Loadding";
 
 
 
 const Register = () => {
-    const { createuser, updateuser } = useContext(AuthContex)
-    const [error, seterror] = useState('')
+    const { createuser, updateuser, googlesignin } = useContext(AuthContex)
+    const [loadding, setloadding] = useState(true)
+     
 
+    
+    const navigate = useNavigate()
+    const location = useLocation()
+   
+    if (loadding) {
+        return <Loadding></Loadding>
+    }
+    
     const handelonsubmite = (e) => {
         e.preventDefault()
 
@@ -19,32 +29,56 @@ const Register = () => {
         const password = e.target.password.value
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/;
 
-        console.log(name, email, photo, password)
+        
 
-        seterror('')
+      
 
         if (!passwordRegex.test(password)) {
-             alert('stop')
-            seterror('Password must have: 1 uppercase, 1 lowercase, 1 special character, min 6 characters.')
+
+            toast.error('Password must have: 1 uppercase, 1 lowercase, 1 special character, min 6 characters.')
             return
-       }
+        }
 
         // email and password
 
         createuser(email, password)
             .then(res => {
 
-                console.log(res.user)
+                 
                 updateuser({ displayName: name, photoURL: photo })
                     .then(res => {
                     })
                     .catch(err => {
-                        console.log(err)
-                        toast('it is wording ')
+                       
                     })
+                navigate(location.state ? location.state : '/')
+                setloadding(false)
             })
             .catch(err => {
-                console.log(err)
+
+                if (err.code === 'auth/email-already-in-use') {
+                    toast.error('Already have an Account')
+                    return
+                }
+
+            })
+    }
+
+
+
+
+    const handelgooglesign = () => {
+
+        googlesignin()
+            .then(res => {
+
+
+                navigate(location.state ? location.state : '/')
+                toast.success('Successfully Register')
+                setloadding(false)
+            })
+            .catch(err => {
+
             })
     }
 
@@ -83,7 +117,7 @@ const Register = () => {
                             <input
                                 type="text"
                                 name="name"
-
+                                required
                                 placeholder="Your Name"
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
@@ -95,7 +129,7 @@ const Register = () => {
                                 type="text"
                                 name="photo"
                                 placeholder="photoURL"
-
+                                required
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
                         </div>
@@ -119,12 +153,6 @@ const Register = () => {
                                 placeholder="••••••••"
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
-                            <div>
-                                {
-                                    error ? <p className="text-red-200">{error}</p> : ''
-                                }
-                            </div>
-
                         </div>
 
                         <button type="submit" className=" btn btn-secondary w-full">
@@ -140,7 +168,7 @@ const Register = () => {
 
                         {/* Google Signin */}
                         <button
-
+                            onClick={handelgooglesign}
                             type="button"
 
                             className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"

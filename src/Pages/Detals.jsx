@@ -1,9 +1,9 @@
 
-import { use, useEffect, useState } from 'react';
-import {  Link, useLoaderData, useParams } from 'react-router';
-import AuthContex from '../Components/Context/AuthContex';
+import {  useEffect, useState } from 'react';
+import {  Link, useParams } from 'react-router';
+
 import UseAPIhook from '../Hooks/UseAPIhook';
-import { toast } from 'react-toastify';
+
 import Loadding from '../Loadder/Loadding';
 
 
@@ -11,7 +11,6 @@ const Detals = () => {
     
     const {id} = useParams()
     
-    const axisoapi = UseAPIhook()
     const axiosapi = UseAPIhook()
     const [data, setdata] = useState([])
     const [loadding, setloadding] = useState(true)

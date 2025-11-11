@@ -1,12 +1,28 @@
 import { use, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import AuthContex from '../Context/AuthContex';
+import { toast } from 'react-toastify';
+import Loadding from '../../Loadder/Loadding';
 
 const Login = () => {
     const { signinuser, googlesignin } = use(AuthContex)
-    const [error, seterror] = useState('')
+    
     const emailref = useRef(null)
     const navigate = useNavigate()
+    const location = useLocation()
+    const [loadding, setloadding] = useState(true)
+ 
+
+
+    if (loadding) {
+        return <Loadding></Loadding>
+    }
+
+
+
+
+
+
 
     const handelonsubmite = (e) => {
         
@@ -17,22 +33,27 @@ const Login = () => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/;
 
        
-
-        seterror('')
+      
+     
 
         if (!passwordRegex.test(password)) {
 
-            seterror('Password must have: 1 uppercase, 1 lowercase, 1 special character, min 6 characters.')
+            toast.error('Password must have: 1 uppercase, 1 lowercase, 1 special character, min 6 characters.')
             return
         }
         
         signinuser(email, password)
             .then(res => {
                 console.log(res.user)
-                navigate('/')
+                navigate(location.state ? location.state : '/')
+                setloadding(false)
             })
             .catch(err => {
-            console.log(err)
+               
+                if (err.code === "auth/invalid-credential") {
+                    toast.error('invalid-credential. Please try ageing')
+                    return
+                }
         })
 
     }
@@ -41,8 +62,9 @@ const Login = () => {
          
         googlesignin()
             .then(res => {
-                console.log(res.user)
-                navigate('/')
+              setloadding(false)
+                navigate(location.state ? location.state : '/')
+
             }) 
             .catch(err => {
             console.log(err)
@@ -97,14 +119,8 @@ const Login = () => {
 
                             <span className=" top-9 absolute right-3 cursor-pointer "> </span>
 
-                            <div><a o className="link link-hover">Forgot password?</a></div>
+                            <div><Link to={'/forget'} className="link link-hover">Forgot password?</Link></div>
 
-
-                            <div>
-                                {
-                                    error ? <p className="text-red-200">{error}</p> : ''
-                                }
-                            </div>
                         </div>
 
                         <button type="submit" className=" btn btn-secondary w-full">
