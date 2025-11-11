@@ -10,13 +10,10 @@ const Login = () => {
     const emailref = useRef(null)
     const navigate = useNavigate()
     const location = useLocation()
-    const [loadding, setloadding] = useState(true)
+   
  
 
 
-    if (loadding) {
-        return <Loadding></Loadding>
-    }
 
 
 
@@ -33,7 +30,8 @@ const Login = () => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/;
 
        
-      
+
+     
      
 
         if (!passwordRegex.test(password)) {
@@ -46,7 +44,7 @@ const Login = () => {
             .then(res => {
                 console.log(res.user)
                 navigate(location.state ? location.state : '/')
-                setloadding(false)
+               
             })
             .catch(err => {
                
@@ -62,7 +60,7 @@ const Login = () => {
          
         googlesignin()
             .then(res => {
-              setloadding(false)
+            
                 navigate(location.state ? location.state : '/')
 
             }) 
@@ -70,6 +68,10 @@ const Login = () => {
             console.log(err)
         })
     }
+
+
+
+    
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#1f2937] relative overflow-hidden">
 

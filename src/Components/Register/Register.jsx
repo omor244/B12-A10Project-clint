@@ -9,17 +9,15 @@ import Loadding from "../../Loadder/Loadding";
 
 const Register = () => {
     const { createuser, updateuser, googlesignin } = useContext(AuthContex)
-    const [loadding, setloadding] = useState(true)
+
      
 
     
     const navigate = useNavigate()
     const location = useLocation()
    
-    if (loadding) {
-        return <Loadding></Loadding>
-    }
-    
+   
+
     const handelonsubmite = (e) => {
         e.preventDefault()
 
@@ -52,7 +50,7 @@ const Register = () => {
                        
                     })
                 navigate(location.state ? location.state : '/')
-                setloadding(false)
+        
             })
             .catch(err => {
 
@@ -75,7 +73,7 @@ const Register = () => {
 
                 navigate(location.state ? location.state : '/')
                 toast.success('Successfully Register')
-                setloadding(false)
+                
             })
             .catch(err => {
 

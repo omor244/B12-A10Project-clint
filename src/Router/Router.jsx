@@ -15,6 +15,7 @@ import MyActiveDetails from "../Pages/MyActiveDetails";
 import JoinChallenge from "../Components/JoinChallenges/JoinChallenge";
 import ErrorPage from "../Error/ErrorPage";
 import Loadding from "../Loadder/Loadding";
+import Forgetpassword from "../Components/Forgetpassword/Forgetpassword";
 
 const axiosapi = UseAPIhook()
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <Detals></Detals>
                
+            },
+            {
+                path: '/forget',
+                element: <Forgetpassword></Forgetpassword>
             },
             {
                 path: '/addchallenge',
