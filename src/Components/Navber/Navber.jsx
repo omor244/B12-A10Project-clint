@@ -5,7 +5,7 @@ import { use } from 'react';
 import AuthContex from '../Context/AuthContex';
 const Navber = () => {
 
-    const { user, signoutuser } = use(AuthContex)
+    const { user, signoutuser, loadding } = use(AuthContex)
  
   
     const handelsignout = () => {
@@ -30,6 +30,11 @@ const Navber = () => {
 
 
     </>
+
+
+    if (loadding) {
+        return <p>Loadding...</p>
+    }
     return (
         <div className="navbar bg-[#1f2937] px-10 shadow-sm">
             <div className="navbar-start">
@@ -40,9 +45,7 @@ const Navber = () => {
                     <ul
                         tabIndex="-1"
                         className="menu menu-sm z-20 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><NavLink to={'/'}>Home </NavLink></li>
-                        <li><NavLink to={'challenges'}>Challenges </NavLink></li>
-                        <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
+                     {links}
 
                     </ul>
                 </div>
@@ -55,27 +58,31 @@ const Navber = () => {
             </div>
             <div className="navbar-end">
                 
-                {user ? (
+                {
+                    loadding ? <p>Loadding...</p> : <>
+                        {user ? (
 
-                    <div  >
+                            <div  >
 
 
 
 
-                        <div className="dropdown z-50 dropdown-end">
+                                <div className="dropdown z-50 dropdown-end">
 
-                            <div tabIndex={0} role="button" className=" w-12  h-12 rounded-full  m-1">
-                                <img src={user?.photoURL}
-                                    className="w-12 h-12 rounded-full" alt="" /></div>
+                                    <div tabIndex={0} role="button" className=" w-12  h-12 rounded-full  m-1">
+                                        <img src={user?.photoURL}
+                                            className="w-12 h-12 rounded-full" alt="" /></div>
 
-                            <ul tabIndex="-1" className="dropdown-content  font-semibold menu bg-white/20  text-white  rounded-box z-1 w-52 p-2 shadow-sm">
-                                <li className=" hover:bg-black/70 hover:text-white text-lg "><NavLink to={'/profile'}>Profile</NavLink></li>
-                                <li className=' hover:bg-black/70 hover:text-white text-lg'><NavLink to={'myactivity'}> My Activities</NavLink></li>
-                                <li ><button className="btn bg-white/50 text-black" onClick={handelsignout}>Sign Out</button ></li>
-                            </ul>
-                        </div>
-                    </div>
-                ) : <Link to={'/login'} className="text-lg btn font-medium">Login </Link>}
+                                    <ul tabIndex="-1" className="dropdown-content  font-semibold menu bg-white/20  text-white  rounded-box z-1 w-52 p-2 shadow-sm">
+                                        <li className=" hover:bg-black/70 hover:text-white text-lg "><NavLink to={'/profile'}>Profile</NavLink></li>
+                                        <li className=' hover:bg-black/70 hover:text-white text-lg'><NavLink to={'myactivity'}> My Activities</NavLink></li>
+                                        <li ><button className="btn bg-white/50 text-black" onClick={handelsignout}>Sign Out</button ></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        ) : <Link to={'/login'} className="text-lg btn font-medium">Login </Link>}
+                    </>
+              }
             </div>
         </div>
 

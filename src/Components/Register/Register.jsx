@@ -91,7 +91,7 @@ const Register = () => {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#1f2937] relative overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-[#1f2937] relative ">
             {/* Animated glow orbs */}
             <div className="absolute inset-0">
                 <div className="absolute w-72 h-72 bg-purple-400/30 rounded-full blur-xl top-10 left-10 animate-pulse"></div>
@@ -99,9 +99,9 @@ const Register = () => {
             </div>
 
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-28 p-6 lg:p-10 text-white">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-28 p-2 lg:p-10 text-white">
 
-                <div className="w-[500px] text-center space-y-3 lg:text-left">
+                <div className=" lg:w-[500px] text-center space-y-3 lg:text-left">
                     <h1 className="text-5xl font-extrabold drop-shadow-lg">
                         &quot;Join EcoTrack&quot;
                     </h1>
@@ -114,7 +114,7 @@ const Register = () => {
 
 
 
-                    <form onSubmit={handelonsubmite} className="space-y-5">
+                    <form onSubmit={handelonsubmite} className="space-y-5 ">
                         <h2 className="text-2xl font-semibold mb-2 text-center text-white">
                             Create Your Account
                         </h2>
@@ -146,6 +146,7 @@ const Register = () => {
                             <input
                                 type="email"
                                 name="email"
+                                required
                                 placeholder="Email"
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
@@ -154,7 +155,7 @@ const Register = () => {
                         <div className="relative">
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                type={toggle ? 'text' : "password"}
+                                type={toggle ?  "password" : 'text'}
                                 name="password"
                                 required
                                 placeholder="••••••••"
@@ -167,7 +168,8 @@ const Register = () => {
 
                         </div>
 
-                        <button type="submit" className=" btn btn-secondary w-full">
+                        <button type="submit" className=" btn bg-gradient-to-r from-orange-400 to-pink-500
+                    hover:from-orange-500 hover:to-pink-600 w-full">
                             Register
                         </button>
 

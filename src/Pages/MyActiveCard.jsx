@@ -5,15 +5,15 @@ import { toast } from "react-toastify";
 
 const MyActiveCard = ({ challenge, setreffter, reffer }) => {
     const axiosapi = UseAPIhook()
-    
-    
+
+
     const { imageUrl, title, category, _id, impactMetric } = challenge || {}
 
 
 
     const handeldelete = () => {
-     
-        
+
+
         axiosapi.delete(`/delete/${_id}`)
             .then(res => {
                 console.log(res.data.deletedCount)
@@ -23,12 +23,12 @@ const MyActiveCard = ({ challenge, setreffter, reffer }) => {
                 }
             })
             .catch(err => {
-            console.log(err)
-        })
+                console.log(err)
+            })
 
     }
 
- 
+
 
     return (
         <div className="card bg-[#1f2937]  shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:-translate-y-2">
@@ -45,10 +45,14 @@ const MyActiveCard = ({ challenge, setreffter, reffer }) => {
                 <div className="text-xs text-white ml-2">{impactMetric}</div>
 
                 <div className="card-actions justify-between items-center mt-4">
-                    <div className="flex gap-4 text-sm justify-between text-base-content/60">
+                    <div className="flex gap-22 lg:gap-44 text-sm justify-between items-center text-base-content/60">
 
-                    <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
-                    <button onClick={handeldelete} className="btn rounded-full ml-38 btn-outline hover:bg-[#1f2937] text-white  btn-sm">Delete</button>
+                        <div>
+                            <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
+                        </div>
+                        <div>
+                            <button onClick={handeldelete} className="btn rounded-full  btn-outline hover:bg-[#1f2937] text-white  btn-sm">Delete</button>
+                        </div>
                     </div>
                     <Link to={`/myactivedetails/${_id}`} className="btn rounded-full bg-gradient-to-r from-orange-400 to-pink-500
                     hover:from-orange-500 hover:to-pink-600   text-white w-full btn-sm">View</Link>

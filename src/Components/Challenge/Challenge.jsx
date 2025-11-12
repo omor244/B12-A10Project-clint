@@ -48,7 +48,7 @@ const Challenge = () => {
                     </select>
                 </div>
              </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-10/12 mx-auto mb-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:w-10/12 p-2 mx-auto mb-8'>
                 {
                     challenges.map(challenge => <ChallengeCard key={challenge._id} challenge={challenge}></ChallengeCard>)
                 }

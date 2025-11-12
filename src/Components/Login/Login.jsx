@@ -85,13 +85,14 @@ const Login = () => {
 
 
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-28 p-6 lg:p-10 text-white">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-28 p-2 lg:p-10 text-white">
 
                 <div className='space-y-3'>
                     <h1 className="  text-5xl font-extrabold s">  &quot;Login to
                         EcoTrack&quot; </h1>
                     
                     <p>Access your account and continue your journey toward a greener planet.</p>
+                    <Link className='btn btn-primary px-4' to={'/'}>Back To Home</Link>
                </div>
 
                 {/* Login card */}
@@ -119,7 +120,7 @@ const Login = () => {
                         <div className="relative">
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                type={toggle? 'text' :  "password"}
+                                type={toggle? "password" : 'text' }
                                 name="password"
                                 placeholder="••••••••"
                                 required
@@ -132,7 +133,8 @@ const Login = () => {
 
                         </div>
 
-                        <button type="submit" className=" btn btn-secondary w-full">
+                        <button type="submit" className=" btn bg-gradient-to-r from-orange-400 to-pink-500
+                    hover:from-orange-500 hover:to-pink-600 w-full">
                             Login
                         </button>
 

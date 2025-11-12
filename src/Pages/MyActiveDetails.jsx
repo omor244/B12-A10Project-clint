@@ -52,13 +52,13 @@ const MyActiveDetails = () => {
 
     }
  
-    const { imageUrl, title, category, _id, impactMetric, participants, description } = data || {}
+    const { imageUrl, title, category, _id,  description } = data || {}
 
     return (
-        <div>
+        <div className="p-2">
             <div className="lg:flex bg-[#1f2950]   items-start mt-12 gap-12">
                 <div>
-                    <img className="max-w-[500px]  overflow-hidden object-cover" src={imageUrl} alt="" />
+                    <img className=" w-[480px]   overflow-hidden object-cover" src={imageUrl} alt="" />
                 </div>
                 <div className="py-4 space-y-4">
                     <h1 className="text-2xl md:text-3xl tracking-widest pb-3 lg:text-4xl font-bold">{title}</h1>

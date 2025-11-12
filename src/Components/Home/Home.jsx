@@ -17,19 +17,19 @@ const Home = () => {
     useEffect(() => {
         axiostrips.get('/trips/limit')
             .then(data => {
-             
+
                 settrips(data.data)
             })
     }, [axiostrips])
 
     useEffect(() => {
-         
-        axiostrips.get('/events',) 
+
+        axiostrips.get('/events',)
             .then(data => {
-             
-                
+
+
                 setevents(data.data)
-        })
+            })
     }, [axiostrips])
 
     return (
@@ -38,47 +38,49 @@ const Home = () => {
 
             <h1 className='text-[#0EA5E9] text-3xl p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>Real-Time Eco Impact — See What We’ve  Achieved</h1>
 
-            <div className='max-w-11/12 mx-auto'>
-                <LiveStatistics></LiveStatistics>
-           </div>
+            <div className=' lg:w-10/12 p-4 mx-auto space-y-14'>
+                <div className=' max-w-11/12 mx-auto'>
+                    <LiveStatistics></LiveStatistics>
+                </div>
 
-            <h1 className='text-[#0EA5E9] text-5xl font-bold mt-18 text-center'>Join a Challenge, Make a Difference</h1>
+                <h1 className='text-[#0EA5E9] text-5xl font-bold mt-18 text-center'>Join a Challenge, Make a Difference</h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-10/12 mx-auto mb-8'>
-                {
-                    challenges.data.map(challenge => <ChallengeCard key={challenge._id} challenge={challenge}></ChallengeCard>)
-                }
-            </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mb-8'>
+                    {
+                        challenges.data.map(challenge => <ChallengeCard key={challenge._id} challenge={challenge}></ChallengeCard>)
+                    }
+                </div>
 
-            <p className=' text-center  lg:text-end'> <Link to={'/challenges'} className=' btn text-[#0EA5E9] mr-30 text-lg '>View All Challenges</Link></p>
+                <p className=' text-center  lg:text-end'> <Link to={'/challenges'} className=' btn text-[#0EA5E9] mr-30 text-lg '>View All Challenges</Link></p>
 
-            <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌱 Latest Eco Tips from the Community</h1>
+                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌱 Latest Eco Tips from the Community</h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-10/12 mx-auto mb-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8   mb-8'>
 
-                {
-                    trips.map(trip => <TripsCard key={trip._id} trip={trip}></TripsCard>)
-                }
-            </div>
-            <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>♻️ Upcoming Eco Events & Activities</h1>
+                    {
+                        trips.map(trip => <TripsCard key={trip._id} trip={trip}></TripsCard>)
+                    }
+                </div>
+                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>♻️ Upcoming Eco Events & Activities</h1>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-10/12 mx-auto mb-8'>
-                {
-                    events.map(event => <EventCard key={event._id} event={event}></EventCard>)
-                }
-            </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mb-8'>
+                    {
+                        events.map(event => <EventCard key={event._id} event={event}></EventCard>)
+                    }
+                </div>
 
-            <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌿 Why Go Green?</h1>
+                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌿 Why Go Green?</h1>
 
-            <div >
-                <WhytoGreen></WhytoGreen>
-            </div>
+                <div>
+                    <WhytoGreen></WhytoGreen>
+                </div>
 
-            <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>How It Works</h1>
+                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>How It Works</h1>
 
-            <div className='lg:flex gap-5 max-w-10/12 mx-auto mb-12'>
-                <HowWork></HowWork>
+                <div className='lg:flex gap-5  mb-12'>
+                    <HowWork></HowWork>
+                </div>
             </div>
         </div>
     );

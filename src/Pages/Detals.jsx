@@ -51,7 +51,7 @@ const Detals = () => {
 
                         <p className='max-w-[800px]'>Sort-Description: {description}</p>
 
-                        <Link  className='btn px-8 rounded-md'>Join this challenge</Link>
+                       
                     </div>
 
 

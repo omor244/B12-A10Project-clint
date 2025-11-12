@@ -16,21 +16,29 @@ const ChallengeCard = ({ challenge }) => {
             </figure>
             <div className="card-body space-y-2">
                 <h2 className="card-title text-xl font-bold">{title}</h2>
-                <div className="flex items-center ">
+                <div className="flex items-center  justify-between">
                     <div className="badge text-lg badge-lg badge-neutral rounded-full">
                         <p className="text-xs text-white ml-2"> {category}</p>
                     </div>
-                    <p className="text-md text-white ml-30 font-semibold "> Duration : {duration}</p>
+                    <div>
+                        <p className="text-md text-white  font-semibold "> Duration : {duration}</p>
+                    </div>
                 </div>
                 <div>
                     Description: {description}
                 </div>
 
                 <div className="card-actions justify-between items-center mt-4">
-                    <div className="flex gap-4 text-sm text-base-content/60">
+                    <div className="flex gap-4 text-sm justify-between text-base-content/60">
 
-                        <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
-                        <button className="btn rounded-full ml-28 btn-outline hover:bg-[#1f2937] text-white  btn-sm"> participation: {participants}</button>
+                        <div>
+                            <p>
+                                <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
+                            </p>
+                        </div>
+                        <div>
+                            <button className="btn rounded-full md:ml-14 lg:ml-28 btn-outline hover:bg-[#1f2937] text-white  btn-sm"> participation: {participants}</button>
+                        </div>
                     </div>
 
                     <Link to={`/details/${_id}`} className="
