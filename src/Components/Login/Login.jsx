@@ -61,8 +61,8 @@ const Login = () => {
             googlesignin()
             .then(res => {
                 
-                toast.success('Successfully Login')
                 navigate(location.state ? location.state : '/')
+                toast.success('Successfully Login')
 
             }) 
             .catch(err => {

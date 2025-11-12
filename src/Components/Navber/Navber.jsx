@@ -4,19 +4,20 @@ import logo from '../../assets/logo.png.png'
 import { use } from 'react';
 import AuthContex from '../Context/AuthContex';
 const Navber = () => {
-      
+
     const { user, signoutuser } = use(AuthContex)
-    
+ 
+  
     const handelsignout = () => {
-         
+
         signoutuser()
             .then(res => {
-            console.log(res)
+               
             })
             .catch(err => {
-            console.log(err)
-        })
-     }
+              
+            })
+    }
 
     const links = <>
         <li><NavLink to={'/'}>Home </NavLink></li>
@@ -24,10 +25,10 @@ const Navber = () => {
         <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
         <li><NavLink to={'/trips'}> Trips</NavLink></li>
         <li><NavLink to={'/addchallenge'}> add-challenge</NavLink></li>
-       
 
-    
-    
+
+
+
     </>
     return (
         <div className="navbar bg-[#1f2937] px-10 shadow-sm">
@@ -42,23 +43,42 @@ const Navber = () => {
                         <li><NavLink to={'/'}>Home </NavLink></li>
                         <li><NavLink to={'challenges'}>Challenges </NavLink></li>
                         <li><NavLink to={'myactivity'}> My Activities</NavLink></li>
-                       
+
                     </ul>
                 </div>
                 <Link to={'/'} className=" text-xl"><img className='max-w-28' src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                 {links}
+                    {links}
                 </ul>
             </div>
             <div className="navbar-end">
-                {
-                    user ? <a onClick={handelsignout} className="btn">Sign Out</a> : <Link to={'/login'} className="btn">Login</Link>
-               }
+                
+                {user ? (
+
+                    <div  >
+
+
+
+
+                        <div className="dropdown z-50 dropdown-end">
+
+                            <div tabIndex={0} role="button" className=" w-12  h-12 rounded-full  m-1">
+                                <img src={user?.photoURL}
+                                    className="w-12 h-12 rounded-full" alt="" /></div>
+
+                            <ul tabIndex="-1" className="dropdown-content  font-semibold menu bg-white/20  text-white  rounded-box z-1 w-52 p-2 shadow-sm">
+                                <li className=" hover:bg-black/70 hover:text-white text-lg "><NavLink to={'/profile'}>Profile</NavLink></li>
+                                <li className=' hover:bg-black/70 hover:text-white text-lg'><NavLink to={'myactivity'}> My Activities</NavLink></li>
+                                <li ><button className="btn bg-white/50 text-black" onClick={handelsignout}>Sign Out</button ></li>
+                            </ul>
+                        </div>
+                    </div>
+                ) : <Link to={'/login'} className="text-lg btn font-medium">Login </Link>}
             </div>
         </div>
-   
+
     );
 };
 

@@ -50,7 +50,7 @@ const Home = () => {
                 }
             </div>
 
-            <p className=' text-center lg:text-end'> <Link className=' btn mr-11 text-lg '>View All Challenges</Link></p>
+            <p className=' text-center  lg:text-end'> <Link to={'/challenges'} className=' btn text-[#0EA5E9] mr-30 text-lg '>View All Challenges</Link></p>
 
             <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌱 Latest Eco Tips from the Community</h1>
 

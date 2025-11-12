@@ -48,9 +48,10 @@ const MyActiveCard = ({ challenge, setreffter, reffer }) => {
                     <div className="flex gap-4 text-sm justify-between text-base-content/60">
 
                     <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
-                    <button onClick={handeldelete} className="btn rounded-full ml-32 btn-outline hover:bg-[#1f2937] text-white  btn-sm">Delete</button>
+                    <button onClick={handeldelete} className="btn rounded-full ml-38 btn-outline hover:bg-[#1f2937] text-white  btn-sm">Delete</button>
                     </div>
-                    <Link to={`/myactivedetails/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
+                    <Link to={`/myactivedetails/${_id}`} className="btn rounded-full bg-gradient-to-r from-orange-400 to-pink-500
+                    hover:from-orange-500 hover:to-pink-600   text-white w-full btn-sm">View</Link>
                 </div>
             </div>
         </div>

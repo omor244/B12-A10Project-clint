@@ -16,6 +16,7 @@ import JoinChallenge from "../Components/JoinChallenges/JoinChallenge";
 import ErrorPage from "../Error/ErrorPage";
 import Loadding from "../Loadder/Loadding";
 import Forgetpassword from "../Components/Forgetpassword/Forgetpassword";
+import Profile from "../Components/Profile/Profile";
 
 const axiosapi = UseAPIhook()
 
@@ -76,6 +77,12 @@ const router = createBrowserRouter([
                     <JoinChallenge></JoinChallenge>
                 </PrivateRoute>,
             
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute>
+                    <Profile></Profile>
+                </PrivateRoute>
             }
         ]
     },

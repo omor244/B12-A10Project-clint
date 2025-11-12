@@ -23,17 +23,21 @@ const ChallengeCard = ({ challenge }) => {
                     <p className="text-md text-white ml-30 font-semibold "> Duration : {duration}</p>
                 </div>
                 <div>
-                   Description: {description }
+                    Description: {description}
                 </div>
 
                 <div className="card-actions justify-between items-center mt-4">
                     <div className="flex gap-4 text-sm text-base-content/60">
 
                         <Link to={`/join/${_id}`} className="btn rounded-full btn-outline hover:bg-[#1f2937] text-white  btn-sm">Join this challenge</Link>
-                        <button className="btn rounded-full ml-28 btn-outline hover:bg-[#1f2937] text-white  btn-sm"> participation: {participants }</button>
+                        <button className="btn rounded-full ml-28 btn-outline hover:bg-[#1f2937] text-white  btn-sm"> participation: {participants}</button>
                     </div>
 
-                    <Link to={`/details/${_id}`} className="btn rounded-full bg-linear-to-r from-[#69db7c] to-green-700  text-white w-full btn-sm">View</Link>
+                    <Link to={`/details/${_id}`} className="
+                    btn rounded-full
+                     bg-gradient-to-r from-orange-400 to-pink-500
+                    hover:from-orange-500 hover:to-pink-600 
+                     text-white w-full btn-sm">View</Link>
 
                 </div>
             </div>
