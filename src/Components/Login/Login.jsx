@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import AuthContex from '../Context/AuthContex';
 import { toast } from 'react-toastify';
 import Loadding from '../../Loadder/Loadding';
+import { EyeClosed, EyeIcon } from 'lucide-react';
+import { BsEyeSlash } from 'react-icons/bs';
 
 const Login = () => {
     const { signinuser, googlesignin } = use(AuthContex)
@@ -10,7 +12,7 @@ const Login = () => {
     const emailref = useRef(null)
     const navigate = useNavigate()
     const location = useLocation()
-   
+   const [toggle, settoggle] = useState(true)
  
 
 
@@ -69,7 +71,11 @@ const Login = () => {
             console.log(err)
         })
     }
-
+   
+    const handeltoggle = () => {
+        
+       settoggle(!toggle)
+    }
 
 
     
@@ -113,14 +119,14 @@ const Login = () => {
                         <div className="relative">
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                type={"password"}
+                                type={toggle? 'text' :  "password"}
                                 name="password"
                                 placeholder="••••••••"
                                 required
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
 
-                            <span className=" top-9 absolute right-3 cursor-pointer "> </span>
+                            <span onClick={handeltoggle} className=" top-8 absolute right-3 cursor-pointer ">{toggle ? <EyeClosed/> : <EyeIcon></EyeIcon> } </span>
 
                             <div><Link to={'/forget'} className="link link-hover">Forgot password?</Link></div>
 

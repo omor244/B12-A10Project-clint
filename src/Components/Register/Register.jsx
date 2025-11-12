@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import AuthContex from "../Context/AuthContex";
 import { toast } from "react-toastify";
-import Loadding from "../../Loadder/Loadding";
+
+import { EyeClosed, EyeIcon } from "lucide-react";
 
 
 
@@ -15,6 +16,8 @@ const Register = () => {
     
     const navigate = useNavigate()
     const location = useLocation()
+    const [toggle, settoggle] = useState(true)
+
    
    
 
@@ -79,6 +82,11 @@ const Register = () => {
             .catch(err => {
 
             })
+    }
+
+    const handeltoggle = () => {
+
+        settoggle(!toggle)
     }
 
 
@@ -146,12 +154,17 @@ const Register = () => {
                         <div className="relative">
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                type="password"
+                                type={toggle ? 'text' : "password"}
                                 name="password"
                                 required
                                 placeholder="••••••••"
                                 className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
+                                
                             />
+
+                            <span onClick={handeltoggle} className=" top-8 absolute right-3 cursor-pointer ">{toggle ? <EyeClosed /> : <EyeIcon></EyeIcon>} </span>
+
                         </div>
 
                         <button type="submit" className=" btn btn-secondary w-full">
