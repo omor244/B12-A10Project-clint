@@ -1,16 +1,29 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ EcoTrack — Sustainable Living Community
 
-Currently, two official plugins are available:
+EcoTrack is an interactive web platform designed to inspire and help individuals lead a more sustainable lifestyle. Users can explore challenges, join eco-friendly trips, and participate in that challenges.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Challenge Section: Users can explore various eco-friendly challenges and even add their own sustainability challenges.  
+Join a Challenge: Any user can join an existing challenge and track their progress toward a greener lifestyle.  
 
-## Expanding the ESLint configuration
+Trip Section: Discover eco-trips and sustainable travel ideas that connect you with nature and like-minded individuals.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ Upcoming Events: Stay informed about upcoming environmental campaigns and local eco-events.  
+User Authentication Secure login and registration system powered by **Firebase Authentication**.  
+
+ Responsive Design: Fully responsive UI that works perfectly on desktop, tablet, and mobile.  
+
+
+
+  Technologies Used
+
+React.js — Frontend framework  
+React Router DOM — Navigation and routing  
+Tailwind CSS — Utility-first CSS framework  
+DaisyUI — Tailwind component library for beautiful UI  
+Firebase — Authentication and hosting (if used)  
+Vercel — Server deployment  
+Netlify — Client deployment 

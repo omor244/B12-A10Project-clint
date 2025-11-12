@@ -80,7 +80,8 @@ const Navber = () => {
                                     </ul>
                                 </div>
                             </div>
-                        ) : <Link to={'/login'} className="text-lg btn font-medium">Login </Link>}
+                        ) : <Link to={'/login'} className="text-lg btn bg-gradient-to-r from-orange-400 to-pink-500
+                    hover:from-orange-500 hover:to-pink-600  font-medium">Login </Link>}
                     </>
               }
             </div>

@@ -36,14 +36,14 @@ const Home = () => {
         <div className='space-y-12'>
             <Banner></Banner>
 
-            <h1 className='text-[#0EA5E9] text-3xl p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>Real-Time Eco Impact — See What We’ve  Achieved</h1>
+            <h1 className='text-[#0EA5E9] heading text-3xl p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>Real-Time Eco Impact — See What We’ve  Achieved</h1>
 
             <div className=' lg:w-10/12 p-4 mx-auto space-y-14'>
                 <div className=' max-w-11/12 mx-auto'>
                     <LiveStatistics></LiveStatistics>
                 </div>
 
-                <h1 className='text-[#0EA5E9] text-5xl font-bold mt-18 text-center'>Join a Challenge, Make a Difference</h1>
+                <h1 className='text-[#0EA5E9] head text-5xl font-bold mt-18 text-center'>Join a Challenge, Make a Difference</h1>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mb-8'>
                     {
