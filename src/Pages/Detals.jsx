@@ -36,7 +36,7 @@ const Detals = () => {
                 <div>
                     <img className=" rounded w-[800px] h-[800px]  object-cover" src={imageUrl} alt="" />
                 </div>
-                <div>
+                <div className='text-white'>
                     <h1 className="text-5xl py-6 space-y-6  font-bold tracking-widest">{title}</h1>
                     <p className="text-gray-600 leading-8 text-lg hover:text-black"></p>
                     <div className=" space-y-8 pt-10 items-center gap-14">

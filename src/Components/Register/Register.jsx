@@ -46,12 +46,7 @@ const Register = () => {
             .then(res => {
 
                  
-                updateuser({ displayName: name, photoURL: photo })
-                .then(res => {
-                })
-                .catch(err => {
-                    
-                })
+               
                 navigate(location.state ? location.state : '/')
                 toast.success('Successfully Register')
         

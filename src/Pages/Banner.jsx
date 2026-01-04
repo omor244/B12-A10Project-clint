@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 const Banner = () => {
     return (
-        <div className="max-w-full h-[500px] mx-auto relative">
+        <div className="max-w-full h-[60vh] mx-auto relative">
             <Swiper
                 modules={[Pagination, Autoplay]}
                 slidesPerView={1}

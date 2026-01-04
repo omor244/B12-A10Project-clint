@@ -6,7 +6,7 @@ const TripsCard = ({ trip }) => {
     const {title, authorName, upvotes, createdAt} = trip
     
     return (
-        <div className="card bg-[#1f2950] hover:scale-y-110 0 ">
+        <div className="card text-white bg-[#1f2950] hover:scale-y-110 0 ">
          
             <div className="card-body ">
                 <h2 className="card-title text-xl font-bold">{ title}</h2>

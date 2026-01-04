@@ -8,6 +8,7 @@ import TripsCard from '../../Pages/TripsCard';
 import EventCard from '../../Pages/EventCard';
 import WhytoGreen from '../../Pages/WhytoGreen';
 import HowWork from '../../Pages/HowWork';
+import Title from '../../Hooks/Title';
 
 const Home = () => {
     const challenges = useLoaderData()
@@ -36,14 +37,17 @@ const Home = () => {
         <div className='space-y-12'>
             <Banner></Banner>
 
-            <h1 className='text-[#0EA5E9] heading text-3xl p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>Real-Time Eco Impact — See What We’ve  Achieved</h1>
+           
+            <Title title={'Real-Time Eco Impact — See What We’ve  Achieved'}></Title>
 
             <div className=' lg:w-10/12 p-4 mx-auto space-y-14'>
-                <div className=' max-w-11/12 mx-auto'>
+                <div >
                     <LiveStatistics></LiveStatistics>
                 </div>
 
-                <h1 className='text-[#0EA5E9] head text-5xl font-bold mt-18 text-center'>Join a Challenge, Make a Difference</h1>
+               
+
+                <Title title={'Join a Challenge, Make a Difference'}></Title>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mb-8'>
                     {
@@ -52,8 +56,10 @@ const Home = () => {
                 </div>
 
                 <p className=' text-center  lg:text-end'> <Link to={'/challenges'} className=' btn text-[#0EA5E9] mr-30 text-lg '>View All Challenges</Link></p>
+                
 
-                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌱 Latest Eco Tips from the Community</h1>
+                
+                <Title title={'🌱 Latest Eco Tips from the Community'}></Title>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8   mb-8'>
 
@@ -61,8 +67,8 @@ const Home = () => {
                         trips.map(trip => <TripsCard key={trip._id} trip={trip}></TripsCard>)
                     }
                 </div>
-                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>♻️ Upcoming Eco Events & Activities</h1>
-
+              
+                <Title title={'♻️ Upcoming Eco Events & Activities'}></Title>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mb-8'>
                     {
@@ -70,15 +76,16 @@ const Home = () => {
                     }
                 </div>
 
-                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>🌿 Why Go Green?</h1>
-
+              
+                <Title title={'🌿 Why Go Green?'}></Title>
                 <div>
                     <WhytoGreen></WhytoGreen>
                 </div>
 
-                <h1 className='text-[#0EA5E9] text-3xl  p-3 lg:p-0 lg:text-5xl font-bold mt-18 text-center'>How It Works</h1>
+            
+                <Title title={'How It Works'}></Title>
 
-                <div className='lg:flex gap-5  mb-12'>
+                <div className='lg:flex gap-5 text-white  mb-12'>
                     <HowWork></HowWork>
                 </div>
             </div>
